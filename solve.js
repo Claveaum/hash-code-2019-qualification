@@ -21,8 +21,7 @@ function solve(problem, file) {
   // destructure this!
   const { photos } = problem;
   const photoWithIndex = photos.map((ph, i) => {
-    ph.index = i;
-    return ph;
+    return { ...ph, index: i };
   });
   const resultSorted = _.sortBy(photoWithIndex, ["orientation"]);
   const slidesComplete = resultSorted.reduce(
