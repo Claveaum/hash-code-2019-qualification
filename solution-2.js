@@ -26,6 +26,7 @@ module.exports = function solution2(photos) {
         if (otherVertical) {
           used[otherVertical.index] = true;
           res.push({ photos: [pos, otherVertical.index] });
+          photo.tags = photo.tags.concat(otherVertical.tags);
         }
       }
       pos = findNext(photo, t, used);
