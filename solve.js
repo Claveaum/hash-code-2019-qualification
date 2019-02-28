@@ -3,16 +3,15 @@ const _ = require("lodash");
 const gridUtils = require("./grid-utils");
 
 function generateResult(acc, p, i) {
-  const index = i + 1;
   const photo = p;
-  photo.index = index;
+  photo.index = i;
   const resultSize = acc.length;
   if (!resultSize) {
     if (p.orientation === "H") return [{ photos: [photo] }];
   }
   const lastResult = acc[resultSize - 1];
   if (lastResult && lastResult.photos.length < 2) {
-    if (lastResult.photos[0].orientation === "H" && p.orientation === "H") {
+    if (lastResult.photos[0].orientation === "H" && photo.orientation === "H") {
       return [...acc, { photos: [photo] }];
     }
   }
