@@ -66,7 +66,7 @@ function* submitSolution(solution) {
 
   const blobKeys = yield _.mapValues(solution, upload);
   const solutionBlobKeys = _.omit(blobKeys, "sources");
-  const submissions = yield _.mapValues(solutionBlobKeys, function(
+  const submissions = yield _.mapValues(solutionBlobKeys, function (
     blobKey,
     dataSetName
   ) {
