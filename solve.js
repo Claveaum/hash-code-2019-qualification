@@ -4,7 +4,6 @@ const gridUtils = require("./grid-utils");
 
 function generateResult(acc, p, i) {
   const photo = p;
-  photo.index = i;
   const resultSize = acc.length;
   if (!resultSize) {
     if (p.orientation === "H") return [{ photos: [photo] }];
@@ -21,7 +20,11 @@ function generateResult(acc, p, i) {
 function solve(problem, file) {
   // destructure this!
   const { photos } = problem;
-  const resultSorted = _.sortBy(photos, ["orientation"]);
+  const photoWithIndex = photos.map((ph, i) => {
+    ph.index = i;
+    return ph;
+  });
+  const resultSorted = _.sortBy(photoWithIndex, ["orientation"]);
   const slidesComplete = resultSorted.reduce(
     (acc, photo, i) => generateResult(acc, photo, i),
     []
