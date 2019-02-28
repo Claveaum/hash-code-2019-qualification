@@ -29,7 +29,7 @@ module.exports = function solution2(photos) {
           photo.tags = photo.tags.concat(otherVertical.tags);
         }
       }
-      pos = findNext(photo, t, used);
+      pos = findNext(photo, t, used, photos);
     }
   }
   return res;
