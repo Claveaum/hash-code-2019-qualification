@@ -12,7 +12,7 @@ function generateResult(acc, p, i) {
   }
   const lastResult = acc[resultSize - 1];
   if (lastResult && lastResult.photos.length < 2) {
-    if (lastResult.photos[0].orientation === "H") {
+    if (lastResult.photos[0].orientation === "H" && p.orientation === "H") {
       return [...acc, { photos: [photo] }];
     }
   }
