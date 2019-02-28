@@ -5,9 +5,9 @@ Judge : https://hashcodejudge.withgoogle.com/#/home
 ## Scripts
 
 * Lancer une résolution sur tous les fichiers d'entrée, en parallèle : `npm run all`
-* Lancer une résolution sur un fichier d'entrée : `npm run input<1|2|3|4>`
-* Tests : `npm run test`
-* Commit, zip, et soumission au juge : `npm run submit` (tip: tagguer le commit avec le score une fois ce dernier connu : `git tag score=<score> <sha1>`)
+* Lancer une résolution sur un fichier d'entrée : `npm run input:1`, `npm run input:2`, ...
+* Tests : `npm test`
+* Commit, zip, soumission au juge puis tag avec le score reçu : `npm run submit`
 * Génère une nouvelle fonction avec son test : `npm run scaffold <functionName>`
 
 ## Fonctions utilitaires
@@ -44,7 +44,7 @@ Les variables d'environnement peuvent être renseignée dans un fichier [`.env`]
 
 ## Checklist de début de challenge
 
-* Lancer `npm run init` (ce script télécharge énoncé et fichiers d'entrée, remplit la section `config` du `package.json` utilisé par les autres scripts, et crée des fichiers de sortie vide)
+* Lancer `npm run init` (ce script télécharge énoncé et fichiers d'entrée, remplit les sections `config` et `scripts` du `package.json` utilisé par les autres scripts, commit le tout, et enfin crée des fichiers de sortie vide)
 
 ## Conseils
 
@@ -56,4 +56,17 @@ Les variables d'environnement peuvent être renseignée dans un fichier [`.env`]
   * Permet de perdre moins de temps en debug
 * Faire des tests très simples pour ne pas perdre de temps en debug
 * Utiliser `assert` pour vérifier que tout va bien au milieu des fonctions et ne pas perdre de temps en debug
-* Utiliser `debug` en dernier recours (i.e. préfére tests et assertions) pour afficher des valeurs
+* Utiliser `debug` en dernier recours (i.e. préférer tests et assertions) pour afficher des valeurs
+
+## Analyse des jeux de données avec SQL
+
+* Lancer une base de données PostgreSQL avec `npm run pg:run`
+* Dans `pg-load.js`, implémenter la fonction `insertDataSet` qui insère un jeu de données en base
+* Exécuter `pg-load.js *.in.json` qui va créer une base de données par jeu de données
+* Lancer `npm run pg:psql` pour avoir une REPL SQL pour explorer les jeux de données
+  * `\l` pour lister les bases de données (jeux de données)
+  * `\c <database>` pour changer de base de données (jeux de données)
+  * `\dt` pour lister les tables
+  * `\d <table>` pour décrire une table
+  * `\q` pour quitter
+* `npm run pg:stop` et `npm run pg:rm` sont aussi disponibles pour arrêter et supprimer le conteneur Postgres respectivement
