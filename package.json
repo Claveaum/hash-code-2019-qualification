@@ -1,14 +1,16 @@
 {
   "name": "hash-code-2019-qualification",
   "version": "1.0.0",
-  "description": "",
+  "description":
+    "Thanks to Hugo Wood (hgwood) regarding tooling used in this project",
   "main": "index.js",
   "scripts": {
     "start": "cross-env DEBUG=* node -r dotenv/config ./index",
     "lint": "eslint *.js",
     "prettier": "prettier --write \"*.js\"",
     "test": "mocha *.test.js",
-    "init": "npm run download && git add *.pdf *.in.txt round.json package.json && git commit -m \":bento: add statement and input files\"",
+    "init":
+      "npm run download && git add *.pdf *.in.txt round.json package.json && git commit -m \":bento: add statement and input files\"",
     "download": "cross-env DEBUG=* node -r dotenv/config ./download",
     "upload": "cross-env DEBUG=* node -r dotenv/config ./upload",
     "zip": "cross-env DEBUG=* node -r dotenv/config ./zip",
@@ -25,18 +27,8 @@
     "type": "git",
     "url": "git+https://github.com/hgwood/hash-code-2019-qualification.git"
   },
-  "keywords": [
-    "hash code",
-    "google",
-    "contest",
-    "2019"
-  ],
-  "contributors": [
-    "Clément Fassot",
-    "Thibaud Courtoison",
-    "Julien Landuré",
-    "Hugo Wood"
-  ],
+  "keywords": ["hash code", "google", "contest", "2019"],
+  "contributors": ["Maxime Claveau", "Patrice De Saint Steban"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hgwood/hash-code-2019-qualification/issues"
