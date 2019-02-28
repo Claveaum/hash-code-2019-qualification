@@ -11,8 +11,8 @@ function writeLines(path, lines) {
   debug(`wrote ${lines.length} lines to ${path}`);
 }
 
-const unparse = function (slides) {
-  return [slides.length, ...slides.map(value => value.photos.join(" "))]
+const unparse = function(slides) {
+  return [slides.length, ...slides.map(value => value.photos.join(" "))];
 };
 
 module.exports.unparse = unparse;

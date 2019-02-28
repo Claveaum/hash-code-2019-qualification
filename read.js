@@ -28,14 +28,17 @@ module.exports = function read(filePath) {
 };
 
 const parse = inputText => {
-  const parse = jolicitron((save, n) => [save(), n("photos", "orientation", save(), n("tags"))]);
+  const parse = jolicitron((save, n) => [
+    save(),
+    n("photos", "orientation", save(), n("tags"))
+  ]);
   const { parsedValue, remaining } = parse(inputText);
   assert.equal(remaining.trim(), "");
   debug("end");
   return parsedValue;
 };
 
-const assertValid = _.tap(parserOutput => { });
+const assertValid = _.tap(parserOutput => {});
 
 const parseAndValidate = _.flow(
   parse,
