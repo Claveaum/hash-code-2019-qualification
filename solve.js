@@ -1,6 +1,7 @@
 const debug = require("debug")("solve");
 const _ = require("lodash");
 const gridUtils = require("./grid-utils");
+const solution2 = require("./solution-2");
 
 function generateResult(acc, p, i) {
   const photo = p;
@@ -18,10 +19,7 @@ function generateResult(acc, p, i) {
 }
 
 function solution1(photos) {
-  const photoWithIndex = photos.map((ph, i) => {
-    return { ...ph, index: i };
-  });
-  const resultSorted = _.sortBy(photoWithIndex, ["orientation"]);
+  const resultSorted = _.sortBy(photos, ["orientation"]);
   const slidesComplete = resultSorted.reduce(
     (acc, photo, i) => generateResult(acc, photo, i),
     []
@@ -31,11 +29,13 @@ function solution1(photos) {
   }));
 }
 
-
 function solve(problem, file) {
   // destructure this!
   const { photos } = problem;
-  return solution1(photos);
+  const photoWithIndex = photos.map((ph, i) => {
+    return { ...ph, index: i };
+  });
+  return solution2(photoWithIndex);
 }
 
 module.exports = solve;
