@@ -17,9 +17,7 @@ function generateResult(acc, p, i) {
   return acc;
 }
 
-function solve(problem, file) {
-  // destructure this!
-  const { photos } = problem;
+function solution1(photos) {
   const photoWithIndex = photos.map((ph, i) => {
     return { ...ph, index: i };
   });
@@ -31,6 +29,13 @@ function solve(problem, file) {
   return slidesComplete.map(p => ({
     photos: p.photos.map(photo => photo.index)
   }));
+}
+
+
+function solve(problem, file) {
+  // destructure this!
+  const { photos } = problem;
+  return solution1(photos);
 }
 
 module.exports = solve;
