@@ -18,14 +18,14 @@ module.exports = function solution2(photos) {
       //console.log(pos);
       used[pos] = true;
       if (photo.orientation == "H") {
-        res.push({ photos: [pos] });
+        res.push({ photos: [photo] });
       }
       if (photo.orientation == "V") {
         let otherVertical = findnextvertical(photo, photos, used);
         //console.log(otherVertical)
         if (otherVertical) {
           used[otherVertical.index] = true;
-          res.push({ photos: [pos, otherVertical.index] });
+          res.push({ photos: [photo, otherVertical] });
           photo.tags = photo.tags.concat(otherVertical.tags);
         }
       }
