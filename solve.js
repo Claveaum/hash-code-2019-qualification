@@ -8,7 +8,7 @@ function generateResult(acc, p, i) {
   photo.index = index;
   const resultSize = acc.length;
   if (!resultSize) {
-    return [{ photos: [photo] }];
+    if (p.orientation === "H") return [{ photos: [photo] }];
   }
   const lastResult = acc[resultSize - 1];
   if (lastResult && lastResult.photos.length < 2) {
